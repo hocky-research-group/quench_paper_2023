@@ -1,0 +1,25 @@
+high_T:
+    command_file: !!str "setup_diala_pylammps.lmp"
+    input_file: !!str "diala_start.data"
+    run_gamma: !!float "0.01"
+    eq_steps: !!int "20000000"
+    nsim: !!int "1"
+    run_steps: !!int "20000000"
+    nrestart: !!int "10000"
+    dt: !!float "0.5"
+    run_temp: !!float "1200.0"
+    quench_gamma_list: !!seq [!!float "0.001",!!float "0.0001",!!float "0.00001",!!float "0.000001"]
+
+quench: # fix gT
+    quench_thermo_freq: !!int "2"
+    gT0: !!float "2.0"
+    gT0_b: !!float "2.0"
+
+analysis:
+    natoms: !!int "22"
+    target_temp: !!float "300.0"
+    kb: !!float "0.001985875" # kcal/mol
+    fes_phi_windows: !!int "100"
+    fes_psi_windows: !!int "100"
+    tolerance: !!float "0.01"
+
