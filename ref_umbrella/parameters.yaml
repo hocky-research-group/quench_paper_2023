@@ -1,0 +1,33 @@
+high_T:
+    command_file: !!str "setup_diala_pylammps.lmp"
+    input_file: !!str "diala_start.data"
+    run_gamma: !!float "0.01"
+    eq_steps: !!int "400000"
+    nsim: !!int "1"
+    thermo_freq: !!int "1"
+    run_steps: !!int "2000000"
+    nrestart: !!int "2000"
+    dt: !!float "1.0"
+    run_temp_list: !!seq [!!float "200.0",!!float "300.0",!!float "400.0"]
+
+umbrella:
+    plumed_template: !!str "umbrella_template.plumed.dat"
+    kappa: !!float "24.0"
+    phi_windows: !!int "20"
+    psi_windows: !!int "20"
+
+
+quench: # fix gT
+    quench_thermo_freq: !!int "1"
+    gT0: !!float "1.5"
+    gT0_b: !!float "1.5"
+
+analysis:
+    target_temp_list: !!seq [!!float "200.0",!!float "300.0",!!float "400.0"]
+    N_list: !!seq [!!int "1000",!!int "2000",!!int "5000",!!int "10000",!!int "20000",!!int "50000",!!int "60000",!!int "70000",!!int "80000",!!int "90000",!!int "91000",!!int "92000",!!int "93000",!!int "94000",!!int "95000",!!int "96000",!!int "97000",!!int "98000",!!int "99000",!!int "100000",!!int "150000",!!int "200000"]
+    natoms: !!int "22"
+    kb: !!float "0.001985875" # kcal/mol
+    fes_phi_windows: !!int "100"
+    fes_psi_windows: !!int "100"
+    tolerance: !!float "0.01"
+
