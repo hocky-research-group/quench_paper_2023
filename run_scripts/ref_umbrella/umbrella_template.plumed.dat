@@ -1,0 +1,12 @@
+UNITS LENGTH=A TIME=fs ENERGY=kcal/mol
+phi: TORSION ATOMS=5,7,9,15
+psi: TORSION ATOMS=7,9,15,17
+#
+# Impose an umbrella potential on CV 1 and CV 2
+# with a spring constant of 500 kjoule/mol
+# at fixed points on the Ramachandran plot
+#
+umbrella: RESTRAINT ARG=phi,psi KAPPA=%(PHI_KAPPA)s,%(PSI_KAPPA)s AT=%(PHI_CENTER)s,%(PSI_CENTER)s 
+
+# monitor the two variables and the bias potential from the two restraints
+#PRINT STRIDE=1000 ARG=phi,psi,umbrella.bias FILE=#(COLVARFILE)s

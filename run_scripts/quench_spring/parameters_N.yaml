@@ -1,0 +1,23 @@
+high_T:
+    command_file: !!str "random_spring.lmp"
+    input_file_template: !!str "spring_initial__N_.data"
+    N_list: !!seq [!!int "2",!!int "5",!!int "10",!!int "20",!!int "20",!!int "50",!!int "100",!!int "200",!!int "500"]
+    run_temp_list: !!seq [!!float "2.0"]
+    dt: !!float "0.001"
+    eq_steps: !!int "10000000"
+    run_gamma: !!float "0.01"
+    kappa: !!float "5.0"
+    thermo_freq: !!int "10000"
+    nrestarts: !!int "2000"
+
+quench:
+    quench_gamma_list: !!seq [!!float "0.1",!!float "0.01"]
+    quench_thermo_freq: !!int "1"
+    gT0: !!float "1.0"
+    gT0_b: !!float "1.0"
+    
+analysis:
+    target_temp: !!float "1.0"
+    kb: !!float "1.0"
+
+
