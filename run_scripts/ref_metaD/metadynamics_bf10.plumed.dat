@@ -1,0 +1,16 @@
+UNITS LENGTH=A TIME=fs ENERGY=kcal/mol
+# set up two variables for Phi and Psi dihedral angles 
+phi: TORSION ATOMS=5,7,9,15
+psi: TORSION ATOMS=7,9,15,17
+#
+# Activate metadynamics in phi and psi
+# depositing a Gaussian every 500 time steps,
+# with height equal to 1.2 kJoule/mol,
+# and width 0.35 rad for both CVs.
+# Well-tempered metadynamics is activated,
+# and the bias factor is set to 6.0
+#
+metad: METAD ARG=phi,psi PACE=500 HEIGHT=0.286807 SIGMA=0.35,0.35 FILE=/scratch/projects/hockygroup/kl3574/quench_paper_data/ref_WTmetaD/bf10/HILLS BIASFACTOR=10.0 TEMP=300.0 GRID_MIN=-pi,-pi GRID_MAX=pi,pi GRID_BIN=100,100 CALC_RCT
+
+# monitor the two variables and the metadynamics bias potential
+PRINT STRIDE=500 ARG=phi,psi,metad.bias,metad.rbias,metad.rct FILE=/scratch/projects/hockygroup/kl3574/quench_paper_data/ref_WTmetaD/bf10/COLVAR
