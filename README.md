@@ -3,7 +3,7 @@
 
 paper link: https://doi.org/10.1063/5.0176700
 
-## The repository has 3 main directories: ##
+## CONTAINS 3 DIRECTORIES: ##
 
 1. "run_scripts": scripts to run reference data and quench data of various molecular systems.
 2. "lammps_source": user-defined module to run quench simulations.
